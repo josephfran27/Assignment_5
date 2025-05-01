@@ -1,6 +1,6 @@
 package mvc.model;
 
-public class ExoticAnimalAdapter implements PetInterface {
+public class ExoticAnimalAdapter extends Pet {
 	
 	private ExoticAnimal exoticAnimal = null;
 	
@@ -13,6 +13,14 @@ public class ExoticAnimalAdapter implements PetInterface {
 	 * @param exoticAnimal
 	 */
 	public ExoticAnimalAdapter(ExoticAnimal exoticAnimal) {
+		super(
+				exoticAnimal.getUniqueId().hashCode(),
+				exoticAnimal.getAnimalName(),
+				exoticAnimal.getCategory(),
+				exoticAnimal.getSubSpecies(),
+				exoticAnimal.getYearsOld(),
+				exoticAnimal.isAdopted()
+		);
 		this.exoticAnimal = exoticAnimal;
 		this.adopted = false;
 	}
@@ -75,9 +83,5 @@ public class ExoticAnimalAdapter implements PetInterface {
 	}
 
 	
-	
-	
-	
-
 
 }

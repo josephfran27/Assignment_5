@@ -46,26 +46,21 @@ public class PetView extends JFrame {
 		setContentPane(panel);
 		getContentPane().setLayout(null);
 		
-		//Header text
-		JLabel headerLabel = new JLabel("Welcome to Joe's Pet Shelter!", JLabel.CENTER);
-		headerLabel.setSize(350, 100);
-		panel.add(headerLabel);
-		
 		//text fields/combo boxes
 		nameTextField = new JTextField();
-		nameTextField.setBounds(620, 40, 100, 20);
+		nameTextField.setBounds(620, 40, 120, 20);
 		panel.add(nameTextField);
 		
 		speciesTextField = new JTextField();
-		speciesTextField.setBounds(620, 5070, 120, 20);
+		speciesTextField.setBounds(620, 70, 120, 20);
 		panel.add(speciesTextField);
 		
 		ageTextField = new JTextField();
 		ageTextField.setBounds(620, 100, 120, 20);
 		panel.add(ageTextField);
 		
-		typeComboBox = new JComboBox<>(new String[] {"Dog", "Cat", "Rabbit", "Exotic Animal"});
-		ageTextField.setBounds(620, 130, 100, 20);
+		typeComboBox = new JComboBox<>(new String[] {"Select Type", "Dog", "Cat", "Rabbit", "Exotic Animal"});
+		typeComboBox.setBounds(620, 130, 120, 20);
 		panel.add(typeComboBox);
 		
 		//labels, buttons, and combo boxes
@@ -88,6 +83,7 @@ public class PetView extends JFrame {
 		
 		viewDetailsButton = new JButton("View Details");
 		viewDetailsButton.setBounds(550, 260, 170, 25);
+		panel.add(viewDetailsButton);
 		
 		savePetButton = new JButton("Save");
 		savePetButton.setBounds(550, 300, 170, 25);
@@ -103,7 +99,7 @@ public class PetView extends JFrame {
 		petList = new JList<>(petListModel);
 		petList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);	
 		JScrollPane scrollPane = new JScrollPane(petList);
-		scrollPane.setBounds(30, 30, 500, 203000);
+		scrollPane.setBounds(30, 30, 500, 300);
 		panel.add(scrollPane);
 	}
 	
@@ -120,7 +116,7 @@ public class PetView extends JFrame {
 		return Integer.parseInt(ageTextField.getText());
 	}
 	
-	public String getType() {
+	public String getPetType() {
 		return (String) typeComboBox.getSelectedItem();
 	}
 	
