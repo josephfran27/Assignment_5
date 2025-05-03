@@ -9,7 +9,6 @@ import mvc.view.PetView;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Java version: " + System.getProperty("java.version"));
 
 		SwingUtilities.invokeLater(() -> {
             PetContainerModel model = new PetContainerModel();
@@ -17,6 +16,7 @@ public class Main {
             ShelterInformationController controller = new ShelterInformationController(model, view);
             controller.initiate();
         });
+		
 	}
 
 }

@@ -7,6 +7,7 @@ public class ExoticAnimal {
 	private String category;
 	private String subSpecies;
 	private int yearsOld;
+	private boolean adopted;
 	
 	/**
 	 * Constructor for ExoticAnimal object, initializes all of the unique fields of the exotic animal.
@@ -105,7 +106,21 @@ public class ExoticAnimal {
 		this.yearsOld = yearsOld;
 	}
 	
+	/**
+	 * Returns the status of the animals adoption.
+	 * @return adopted: The adoption status of the animal.
+	 */
+	public boolean isAdopted() {
+		return adopted;
+	}
 	
+	/**
+	 * Sets the status of the animals adoption.
+	 * @param adopted: The adoption status of the animal.
+	 */
+	public void setAdopted(boolean adopted) {
+		this.adopted = adopted;
+	}
 	
 	
 

@@ -13,6 +13,12 @@ import com.google.gson.reflect.TypeToken;
 
 public class PetJSONReader {
 	
+	/**
+	 * Loads the Pet objects from pets.json and adds them into a list.
+	 * @param filePath: The filePath that will be read (pets.json)
+	 * @return: An ArrayList of the different pets that were read from the file. If there
+	 * is an error reading the file, an empty ArrayList is returned.
+	 */
 	public static ArrayList<Pet> loadPets(String filePath) {
 		try(FileReader reader = new FileReader(filePath)) {
 			Gson gson = new Gson();
@@ -25,6 +31,14 @@ public class PetJSONReader {
 		}
 	}
 	
+	/**
+	 * Loads the Exotic Animal objects from exotic_animals.json and adds them to a list. It 
+	 * also implements the adapter and makes the exotic animal objects compatible with the 
+	 * original pet objects.
+	 * @param filePath: The filePath that will be read (exotic_animals.json)
+	 * @return An ArrayList of the adapted pets. If there
+	 * is an error reading the file, an empty ArrayList is returned.
+	 */
 	public static ArrayList<Pet> loadExoticPets(String filePath) {
 		try(FileReader reader = new FileReader(filePath)) {
 			Gson gson = new Gson();
@@ -43,6 +57,11 @@ public class PetJSONReader {
 		}
 	}
 	
+	/**
+	 * Saves the list of pets to a JSON file.
+	 * @param pets: The list of pets that is to be saved.
+	 * @param filePath: The filePath where the list is saved, in this case a new file is written.
+	 */
 	public static void savePetsToFile(List<Pet> pets, String filePath) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		

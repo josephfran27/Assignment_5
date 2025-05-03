@@ -29,7 +29,12 @@ public class ShelterInformationController {
 	private PetContainerModel petContainerModel;
 	private PetView petView;
 	
-	
+	/**
+	 * This is the constructor for the controller. It uses the passed model and view. It also loads the
+	 * original and exotic pets from the JSON files. Lastly, it adds all of the listeners.
+	 * @param petContainerModel: The model for the list of pets.
+	 * @param petView: The view for the pets.
+	 */
 	public ShelterInformationController(PetContainerModel petContainerModel, PetView petView) {
 		this.petContainerModel = petContainerModel;
 		this.petView = petView;
@@ -57,10 +62,17 @@ public class ShelterInformationController {
 		petView.addSortComboBoxListener(new SortComboBoxListener());
 	}
 	
+	/**
+	 * Shows the pet view.
+	 */
 	public void initiate() {
 		petView.setVisible(true);
 	}
 	
+	/**
+	 * The listener for the Add Pet button. It uses the user input to create a new pet object based
+	 * on the selected fields by using a switch case.
+	 */
 	private class AddPetButtonListener implements ActionListener {
 
 		@Override
@@ -99,7 +111,11 @@ public class ShelterInformationController {
 			
 		}
 	}
-		
+	
+	/**
+	 * The listener for the Adopt Pet button. It checks that the pet isn't already adopted and it sets its
+	 * status to true upon the click on the button. It also uses repaint to set the screen to say true.
+	 */
 	private class AdoptPetButtonListener implements ActionListener {
 
 		@Override
@@ -115,6 +131,10 @@ public class ShelterInformationController {
 			
 	}
 	
+	/**
+	 * The listener for the Remove Pet button. It uses the selected index from the pet that the user clicked
+	 * and removes the pet.
+	 */
 	private class RemovePetButtonListener implements ActionListener {
 
 		@Override
@@ -131,6 +151,10 @@ public class ShelterInformationController {
 		
 	}
 	
+	/**
+	 * The listener for the View Details button. It displays a dialog that shows the information of the 
+	 * selected pet object.
+	 */
 	private class ViewDetailsButtonListener implements ActionListener {
 
 		@Override
@@ -144,6 +168,10 @@ public class ShelterInformationController {
 		
 	}
 	
+	/**
+	 * Listener for the Save button. It saves the list of pets to the JSON file with formatting to add the 
+	 * time stamp.
+	 */
 	private class SavePetButtonListener implements ActionListener {
 
 		@Override
@@ -157,6 +185,10 @@ public class ShelterInformationController {
 		
 	}
 	
+	/**
+	 * Listener for the Sort combo box. It supports the pets based on the chosen comparator that were
+	 * initially defined.
+	 */
 	private class SortComboBoxListener implements ActionListener {
 
 		@Override

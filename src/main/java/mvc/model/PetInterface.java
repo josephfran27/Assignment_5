@@ -3,8 +3,7 @@ package mvc.model;
 public interface PetInterface {
 	
 	/**
-	 * Defines the methods that Pet should implement. I added this interface so that
-	 * it can be implemented by ExoticAnimalAdapter.
+	 * Defines the methods that Pet should implement.
 	 * @return
 	 */
 	int getId();

@@ -71,7 +71,7 @@ public class ExoticAnimalAdapter extends Pet {
 	 */
 	@Override
 	public boolean isAdopted() {
-		return adopted;
+		return exoticAnimal.isAdopted();
 	}
 	
 	/**
@@ -79,7 +79,8 @@ public class ExoticAnimalAdapter extends Pet {
 	 */
 	@Override
 	public void setAdopted(boolean adopted) {
-		this.adopted = adopted;
+		super.setAdopted(adopted);
+		exoticAnimal.setAdopted(adopted);
 	}
 
 	

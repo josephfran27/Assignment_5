@@ -19,7 +19,7 @@ public class PetView extends JFrame {
 	
 	private JPanel panel;
 	
-	//text boxes/selector for pet information
+	//input boxes/selectors for pet information
 	private JTextField nameTextField;
 	private JTextField speciesTextField;
 	private JTextField ageTextField;
@@ -33,10 +33,13 @@ public class PetView extends JFrame {
 	private JButton viewDetailsButton;
 	private JButton savePetButton;
 	
-	//initializer for pet list
+	//initializer for pet list and display
 	private JList<Pet> petList;
 	private DefaultListModel<Pet> petListModel;
 	
+	/**
+	 * Constructs and initializes the shelter graphical user interface.
+	 */
 	public PetView() {
 		setTitle("Pet/Shelter Information Page");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -46,7 +49,7 @@ public class PetView extends JFrame {
 		setContentPane(panel);
 		getContentPane().setLayout(null);
 		
-		//text fields/combo boxes
+		//input fields/combo boxes
 		nameTextField = new JTextField();
 		nameTextField.setBounds(620, 40, 120, 20);
 		panel.add(nameTextField);
@@ -70,31 +73,34 @@ public class PetView extends JFrame {
 		panel.add(new JLabel("Type: ")).setBounds(560, 130, 100, 20);
 		
 		addPetButton = new JButton("Add Pet");
-		addPetButton.setBounds(550, 180, 80, 25);
+		addPetButton.setBounds(550, 160, 190, 25);
 		panel.add(addPetButton);
 		
+		panel.add(new JLabel("Other Options")).setBounds(600, 210, 100, 15);
+		
 		adoptPetButton = new JButton("Adopt Pet");
-		adoptPetButton.setBounds(640, 180, 80, 25);
+		adoptPetButton.setBounds(550, 230, 190, 25);
 		panel.add(adoptPetButton);
 		
 		removePetButton = new JButton("Remove Pet");
-		removePetButton.setBounds(550, 220, 170, 25);
+		removePetButton.setBounds(550, 260, 190, 25);
 		panel.add(removePetButton);
 		
 		viewDetailsButton = new JButton("View Details");
-		viewDetailsButton.setBounds(550, 260, 170, 25);
+		viewDetailsButton.setBounds(550, 290, 190, 25);
 		panel.add(viewDetailsButton);
 		
 		savePetButton = new JButton("Save");
-		savePetButton.setBounds(550, 300, 170, 25);
+		savePetButton.setBounds(550, 320, 190, 25);
 		panel.add(savePetButton);
 		
 		sortComboBox = new JComboBox<>(new String[] {"Name", "Age", "Species"});
-		sortComboBox.setBounds(30, 350, 150, 25);
+		sortComboBox.setBounds(220, 340, 190, 25);
 		panel.add(sortComboBox);
 		
-		panel.add(new JLabel("Sort By: ")).setBounds(30, 330, 100, 15);
+		panel.add(new JLabel("Sort By: ")).setBounds(170, 345, 100, 15);
 		
+		//pet list
 		DefaultListModel<Pet> petListModel = new DefaultListModel<>();
 		petList = new JList<>(petListModel);
 		petList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);	
@@ -103,36 +109,57 @@ public class PetView extends JFrame {
 		panel.add(scrollPane);
 	}
 	
-	//methods for controller
+	/**
+	 * Returns the pet name input.
+	 */
 	public String getName() {
 		return nameTextField.getText();
 	}
 	
+	/**
+	 * Returns the pet species input.
+	 */
 	public String getSpecies() {
 		return speciesTextField.getText();
 	}
 	
+	/**
+	 * Returns the pet age input as an integer.
+	 */
 	public int getAge() {
 		return Integer.parseInt(ageTextField.getText());
 	}
 	
+	/**
+	 * Returns the selected pet type.
+	 */
 	public String getPetType() {
 		return (String) typeComboBox.getSelectedItem();
 	}
 	
+	/**
+	 * Returns the selected pet from the pet list.
+	 */
 	public Pet getSelectedPet() {
 		return petList.getSelectedValue();
 	}
 	
-	
+	/**
+	 * Returns the index of the selected pet from the pet list.
+	 */
 	public int getSelectedIndex() {
 		return petList.getSelectedIndex();
 	}
 	
+	/**
+	 * Returns the model that holds the pet list.
+	 * @return
+	 */
 	public DefaultListModel<Pet> getPetListModel() {
 		return petListModel;
 	}
 	
+	//Returns the different buttons
 	public JButton getAddPetButton() {
 		return addPetButton;
 	}
@@ -153,11 +180,12 @@ public class PetView extends JFrame {
 		return savePetButton;
 	}
 	
+	//Returns the sort combo box
 	public JComboBox<String> getSortComboBox() {
 		return sortComboBox;
 	}
 	
-	//listeners
+	//listeners for the different buttons
 	public void addAddPetListener(ActionListener listener) {
 		addPetButton.addActionListener(listener);
 	}
